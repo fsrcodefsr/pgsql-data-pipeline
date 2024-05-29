@@ -1,1 +1,1 @@
-# kafka-postgresql-pipiline
+Pipeline data between ppsql dbs via kafka broker
