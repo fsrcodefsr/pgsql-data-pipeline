@@ -1,1 +1,1 @@
-Data pipeline between ppsql dbs via kafka broker
+Data pipeline between 2 pgsql dbs via self written service on fastapi
