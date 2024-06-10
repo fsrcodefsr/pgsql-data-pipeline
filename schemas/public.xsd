@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/public"
+           xmlns="http://example.com/public"
+           elementFormDefault="qualified">
+
+    <!-- Определение корневого элемента -->
+    <xs:element name="root">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Добавляем элементы user, address, order -->
+                <xs:element ref="user" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="address" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="order" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Определение типов данных для каждой сущности -->
+
+    <xs:element name="user">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+                <xs:element name="username" type="xs:string"/>
+                <xs:element name="email" type="xs:string"/>
+                <xs:element name="password_hash" type="xs:string"/>
+                <xs:element name="created_at" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="updated_at" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="deleted_at" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="transmitted_at" type="xs:dateTime" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="address">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+                <xs:element name="user_id" type="xs:int"/>
+                <xs:element name="street" type="xs:string"/>
+                <xs:element name="city" type="xs:string"/>
+                <xs:element name="state" type="xs:string"/>
+                <xs:element name="postal_code" type="xs:string"/>
+                <xs:element name="created_at" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="updated_at" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="deleted_at" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="transmitted_at" type="xs:dateTime" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="order">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+                <xs:element name="user_id" type="xs:int"/>
+                <xs:element name="order_date" type="xs:date"/>
+                <xs:element name="total_amount" type="xs:decimal"/>
+                <xs:element name="created_at" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="updated_at" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="deleted_at" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="transmitted_at" type="xs:dateTime" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

@@ -1,0 +1,41 @@
+services:
+
+  source-db:
+    image: postgres:15
+    container_name: source-db
+    environment:
+      POSTGRES_DB: source_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 123!@#
+    volumes:
+      - source-db_data:/var/lib/postgresql/data
+    ports:
+      - "6543:5432"
+    restart: always
+    networks:
+      - db_net
+
+  dest-db:
+    image: postgres:15
+    container_name: dest-db
+    environment:
+      POSTGRES_DB: dest_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 123!@#
+    volumes:
+      - dest-db_data:/var/lib/postgresql/data
+    ports:
+      - "6542:5432"
+    restart: always
+    networks:
+      - db_net
+
+volumes:
+  source-db_data:
+    driver: local
+  dest-db_data:
+    driver: local
+
+networks:
+  db_net:
+    driver: bridge
